@@ -1,0 +1,92 @@
+:root {
+    --cor-1: #0C1844;
+    /* --cor-2: #C80036; */
+    /* --cor-2:; */
+    --cor-3: #FF6969;
+    --cor-4: #FFF5E1;
+
+    --fonte-principal: poppins;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(270deg, #1809b9, #04904a);
+    /* azul claro para verde */
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    /* Aumenta a largura para se adequar a telas menores */
+    max-width: 600px;
+    /* Reduz a largura máxima para melhor visualização em celular */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-direction: column;
+    margin: 1em;
+    padding: 20px;
+    /* Adiciona um padding em torno da área de texto */
+}
+
+.text {
+    width: 100%;
+    padding: 20px;
+    /* Reduz o padding para melhor adaptação em telas menores */
+    box-sizing: border-box;
+    font-size: 36px;
+    /* Ajusta a fonte para ser mais legível em dispositivos móveis */
+    line-height: 1.6;
+    text-align: center;
+    color: #333;
+}
+
+.ver-momentos {
+    display: inline-block;
+    padding: 10px 15px;
+    /* Ajusta o padding para botões menores em dispositivos móveis */
+    font-size: 16px;
+    /* Ajusta a fonte do botão */
+    color: #fff;
+    background-color: #C80036;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: 2px solid #C80036;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ver-momentos:hover {
+    background-color: #FF6969;
+}
+
+/* Adiciona responsividade para dispositivos menores */
+@media (max-width: 600px) {
+    .text {
+        font-size: 1.1rem;
+        /* Reduz ainda mais a fonte em telas menores */
+    }
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Amizade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background-color: #f7f3ed;
+            /* Cor de fundo clara similar à imagem */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            /* Ajuste conforme necessário */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: #8a2be2;
+            /* Cor roxa genérica */
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-height: 180px;
+            /* Garante uma altura mínima para os cards */
+            box-sizing: border-box;
+        }
+
+        /* Cores específicas dos cards */
+        .card.canva {
+            background-color: #f7f3ed;
+            /* Fundo do card Canva é claro */
+            color: #5a3c6c;
+            /* Cor do texto para o card Canva */
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 30px;
+            padding-left: 25px;
+        }
+
+        .card.canva .logo {
+            font-size: 2em;
+            /* Tamanho da fonte para "CANVA" */
+            font-weight: bold;
+            color: #5a3c6c;
+            /* Cor mais escura para o logo Canva */
+            margin-bottom: 10px;
+        }
+
+        .card.canva .we-are-friends {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            /* Texto "Somos amigos há" é branco */
+            background-color: #8a2be2;
+            /* Fundo roxo para este texto */
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.2;
+            align-self: flex-start;
+        }
+
+        .card.canva .time-info {
+            font-size: 1.2em;
+            color: #8a2be2;
+            /* Cor roxa para o texto do tempo */
+            text-align: left;
+            width: 100%;
+        }
+
+        .card.canva .time-info div {
+            margin-bottom: 8px;
+        }
+
+        .card.purple {
+            background-color: #8a2be2;
+            /* Roxo principal */
+        }
+
+        .card.dark-purple {
+            background-color: #5a3c6c;
+            /* Roxo mais escuro */
+        }
+
+        .card.light-purple {
+            background-color: #b19cd9;
+            /* Roxo claro para o card "Série/Filme" */
+        }
+
+        .card img {
+            max-width: 70%;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+            /* Sombra para dar profundidade */
+        }
+
+        .card p {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .card.moments img {
+            max-width: 90%;
+            /* Ajuste para as fotos polaroid */
+        }
+
+        .card.series-movie img {
+            max-width: 80%;
+            /* Ajuste para o claquete */
+        }
+
+        .card.dreams img {
+            max-width: 60%;
+            /* Ajuste para a estrela */
+        }
+
+        .card.notes img {
+            max-width: 70%;
+            /* Ajuste para o diário */
+        }
+
+        .card.question-marks img {
+            max-width: 60%;
+            /* Ajuste para o relógio de bolso */
+        }
+
+        .card.question-marks p {
+            font-size: 2.5em;
+            /* Tamanho maior para "???" */
+        }
+
+        /* Responsividade básica */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card.canva .we-are-friends {
+                font-size: 1.5em;
+            }
+
+            .card.canva .time-info {
+                font-size: 1.1em;
+            }
+
+            .card p {
+                font-size: 1.3em;
+            }
+        }
+
+        /* ANIMAÇÃO DE GIRO PARA O DISCO DE VINIL */
+        /* Define a animação de giro */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Aplica a animação à imagem dentro do card purple */
+        .card.purple img {
+            animation: spin 3s linear infinite;
+            /* 3s = duração, linear = velocidade constante, infinite = repetir infinitamente */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card canva">
+            <div class="we-are-friends">Nos conhecemos no dia: <br>Estamos juntos há:</div>
+            <div class="time-info">
+                <div id="days">Dias: 0</div>
+                <div id="hours">Horas: 0</div>
+                <div id="minutes">Minutos: 0</div>
+                <div id="seconds">Segundos: 0</div>
+            </div>
+        </div>
+        <div class="card purple">
+            <a href="./html/teste.html">
+                <img src="/img/1.png" alt="Disco de Vinil">
+            </a>
+            <p>Playlist</p>
+        </div>
+        <div class="card dark-purple moments">
+            <img src="https://via.placeholder.com/150x100/999999/FFFFFF?text=Polaroid" alt="Fotos Polaroid">
+            <p>Momentos</p>
+        </div>
+        <div class="card light-purple series-movie">
+            <img src="https://via.placeholder.com/150x100/8A2BE2/FFFFFF?text=Clapper" alt="Claquete de Filme">
+            <p>Séries/Filmes</p>
+        </div>
+        <div class="card dark-purple dreams">
+            <img src="https://via.placeholder.com/80x80/FFD700/FFFFFF?text=Star" alt="Estrela Dourada">
+            <p>Sonhos</p>
+        </div>
+        <div class="card purple notes">
+            <img src="https://via.placeholder.com/100x100/8B4513/FFFFFF?text=Journal" alt="Diário Antigo">
+            <p>Recados</p>
+        </div>
+        <div class="card dark-purple question-marks">
+            <img src="https://via.placeholder.com/80x80/6A5ACD/FFFFFF?text=Clock" alt="Relógio de Bolso">
+            <p>???</p>
+        </div>
+    </div>
+
+    <script>
+        // Define a data de início (21 de abril de 2025)
+        const startDate = new Date('2025-07-02T00:00:00'); // Meia-noite de 21 de abril de 2025
+
+        // Função para atualizar o contador
+        function updateCounter() {
+            const now = new Date(); // Data e hora atuais
+
+            // Calcula a diferença em milissegundos
+            // Se a data atual for maior que a data de início, 'diff' será positivo (contagem progressiva)
+            // Se a data atual for menor que a data de início, 'diff' será negativo (contagem regressiva, mas aqui tratamos como 0)
+            const diff = now.getTime() - startDate.getTime();
+
+            // Verifica se a data de início ainda não chegou
+            if (diff < 0) {
+                // Se a data ainda não chegou, exibimos 0 para todos os campos
+                document.getElementById('days').textContent = 'Dias: 0';
+                document.getElementById('hours').textContent = 'Horas: 0';
+                document.getElementById('minutes').textContent = 'Minutos: 0';
+                document.getElementById('seconds').textContent = 'Segundos: 0';
+                return; // Sai da função, pois a contagem ainda não começou
+            }
+
+            // Calcula dias, horas, minutos e segundos a partir da diferença
+            const seconds = Math.floor((diff / 1000) % 60);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            // Atualiza o conteúdo HTML
+            document.getElementById('days').textContent = `Dias: ${days}`;
+            document.getElementById('hours').textContent = `Horas: ${hours}`;
+            document.getElementById('minutes').textContent = `Minutos: ${minutes}`;
+            document.getElementById('seconds').textContent = `Segundos: ${seconds}`;
+        }
+
+        // Chama a função de atualização a cada segundo
+        setInterval(updateCounter, 1000);
+
+        // Chama a função uma vez ao carregar a página para exibir o valor inicial
+        updateCounter();
+    </script>
+</body>
+
+</html>
