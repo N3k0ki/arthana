@@ -71,6 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '04/07/2025',
             text: 'Eu amo ver você feliz. Mesmo que aquela bala tivesse um gosto super duvidoso, foi legal compartilhar aquele momento com você. Essas pequenas coisas, meio estranhas até, ficam especiais porque a gente tá junto. Quero sempre mais momentos assim com você.'
         },
+        {
+            id: 11,
+            image: '../img/igreja.jpg',
+            date: '06/07/2025',
+            text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
+        },
         // Adicione mais momentos conforme necessário
     ];
 
