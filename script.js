@@ -77,6 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
             date: '06/07/2025',
             text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
         },
+        {
+            id: 12,
+            image: '../img/igreja.jpg',
+            date: '06/07/2025',
+            text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
+        },
+        {
+            id: 13,
+            image: '../img/igreja.jpg',
+            date: '06/07/2025',
+            text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
+        },
+           
         // Adicione mais momentos conforme necessário
     ];
 
