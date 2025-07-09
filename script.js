@@ -79,15 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 12,
-            image: '../img/igreja.jpg',
-            date: '06/07/2025',
-            text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
+            image: '../img/hellokitty.jpg',
+            date: '08/07/2025',
+            text: 'Hello Kitty que me perdoe, mas meu lugar favorito é no seu colo mesmo.'
         },
         {
             id: 13,
-            image: '../img/igreja.jpg',
-            date: '06/07/2025',
-            text: '"A gente preferiu andar pelo citro doq ficar na igreja" - Arthur'
+            image: '../img/gato.jpg',
+            date: '08/07/2025',
+            text: 'Essa foto tá perfeita: cara de bravo + gato revoltado = maiores vilões. 😾❤️'
+        },
+        {
+            id: 14,
+            image: '../img/quadra.jpg',
+            date: '08/07/2025',
+            text: ' Essa foi a foto que a gente mandou pra sua mãe e mesmo no escuro, dá pra ver o carinho ali. Foi simples, mas cheio de afeto... tipo um “tamo bem, viu?” em forma de foto.'
         },
            
         // Adicione mais momentos conforme necessário
